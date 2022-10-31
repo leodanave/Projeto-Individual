@@ -22,13 +22,16 @@
             <h2>Faça o login</h2>
 
             <div class="input_login">
-                <input placeholder="Digite o seu email" type="email">
+                <label class="label_email" for="input_email">Digite seu e-mail</label>
+                <input placeholder="ex: email@gmail.com" type="email">
             </div>
-            <div id="div_eye_input" class="eye_input">
-                <input id="input_senha" placeholder="Digite sua senha" type="password">
-                <button onclick="mudarTipo()"><img id="img_eye" src="assets/images/eye.png" alt=""></button>
+            <div>
+                <label for="input_senha">Digite sua senha</label>
+                <div id="div_eye_input" class="eye_input">
+                    <input id="input_senha" placeholder="************" type="password">
+                    <button onclick="mudarTipo()"><img id="img_eye" src="assets/images/eye.png" alt=""></button>
+                </div>
             </div>
-
             <button class="entrar_login">Entrar</button>
 
             <div class="cadastro_login">

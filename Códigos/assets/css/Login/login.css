@@ -27,6 +27,7 @@
 
 .campo_login .input_login {
     width: 400px;
+    height: 95px;
 }
 
 .campo_login .eye_input {
@@ -42,7 +43,7 @@
 .campo_login .eye_input img {
     position: relative;
     width: 24px;
-    top: 11px;
+    top: 20px;
     left: 350px;
     cursor: pointer;
 }
@@ -51,7 +52,8 @@
     background-color: white;
     padding: 16px;
     color: black;
-    margin-bottom: 36px;
+    margin-top: 5px;
+    /* margin-bottom: 5px; */
     border-radius: 12px;
     width: 100%;
 }
@@ -88,7 +90,7 @@
 
 .campo_login .logo_login {
     margin-top: 30px;
-    margin-bottom: 110px;
+    margin-bottom: 90px;
 }
 
 .cadastro_login {
@@ -104,6 +106,5 @@
 .h3_cadastro {
     color: #1286c9;
 }
-
 
 
