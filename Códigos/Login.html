@@ -26,13 +26,13 @@
             </div>
             <div id="div_eye_input" class="eye_input">
                 <input id="input_senha" placeholder="Digite sua senha" type="password">
-                <button onclick="mudarTipo()"><img id="img_eye" src="assets/images/hidden.png" alt=""></button>
+                <button onclick="mudarTipo()"><img id="img_eye" src="assets/images/eye.png" alt=""></button>
             </div>
 
             <button class="entrar_login">Entrar</button>
 
             <div class="cadastro_login">
-                <h3>Não possui conta? <a class="h3_cadastro" href="cadastro.html">Cadastre-se</a></h3>
+                <h3>Não possui conta? <a class="h3_cadastro" href="Cadastro.html">Cadastre-se</a></h3>
             </div>
         </div>
     </section>
@@ -45,10 +45,10 @@
     function mudarTipo() {
         if (input_senha.type == "password") {
             input_senha.type = "text"
-            img_eye.src = "assets/images/eye.png"
+            img_eye.src = "assets/images/hidden.png"
         } else {
             input_senha.type = "password"
-            img_eye.src = "assets/images/hidden.png"
+            img_eye.src = "assets/images/eye.png"
         }
     }
 

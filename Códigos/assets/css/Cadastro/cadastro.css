@@ -1,0 +1,7 @@
+@import url('../main.css');
+
+.cadastro {
+    background-color: var(--gray);
+
+    height: 100vh;
+}
