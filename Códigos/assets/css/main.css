@@ -87,3 +87,7 @@ a {
       transform: translate(0);
   }
 }
+
+.pagina_atual {
+  font-weight: 700;
+}
