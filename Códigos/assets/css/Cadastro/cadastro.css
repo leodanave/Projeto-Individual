@@ -1,7 +1,18 @@
 @import url('../main.css');
 
 .cadastro {
-    background-color: var(--gray);
+    background-image: url('../../images/Background-Cadastro.jpg');
 
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
+    display: flex;
+    justify-content: end;
+}
+
+.campo_cadastro {
+    background-color: var(--gray);
+    height: 100%;
+    width: 40%;
+
 }
