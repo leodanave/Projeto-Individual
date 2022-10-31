@@ -13,11 +13,37 @@
 
 <body>
 
-<section class="cadastro">
-    <div class="campo_cadastro">
+    <section class="cadastro">
+        <div class="campo_cadastro">
+            <div class="logo_cadastro">
+                <a href="Index.html"><img src="assets/images/Logo.png" alt=""></a>
+            </div>
+            <h2>Faça o cadastro</h2>
 
-    </div>
-</section>
+            <div class="input_cadastro">
+                <label for="in_nomeUsuario">Insira seu nome de usuário</label>
+                <input placeholder="Insira seu nome de usuário" type="text" id="in_nomeUsuario">
+            </div>
+            <div class="input_cadastro">
+                <label for="in_email">Insira seu e-mail</label>
+                <input placeholder="ex: danavespace@gmail.com" type="text" id="in_email">
+            </div>
+            <div class="input_cadastro">
+                <label for="in_senha">Insira sua senha</label>
+                <input placeholder="***********" type="text" id="in_senha">
+            </div>
+            <div class="input_cadastro">
+                <label for="in_confirmacaoSenha">Confirme sua senha</label>
+                <input placeholder="Confirme sua senha" type="text" id="in_confirmacaoSenha">
+            </div>
+
+            <button class="button_cadastro" onclick="cadastrar()">Cadastrar</button>
+
+            <div class="login_cadastro">
+                <h3>Já possui uma conta? <a class="h3_login" href="Login.html">Entre aqui</a></h3>
+            </div>
+        </div>
+    </section>
 
 </body>
 
