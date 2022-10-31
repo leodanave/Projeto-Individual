@@ -43,14 +43,14 @@
 .campo_login .eye_input img {
     position: relative;
     width: 24px;
-    top: 16px;
+    top: 13px;
     left: 350px;
     cursor: pointer;
 }
 
 .campo_login input {
     background-color: white;
-    padding: 16px;
+    padding: 12px;
     color: black;
     margin-top: 5px;
     border-radius: 8px;
@@ -93,8 +93,8 @@
 }
 
 .campo_login .logo_login {
-    margin-top: 30px;
-    margin-bottom: 90px;
+    margin-top: 50px;
+    margin-bottom: 70px;
 }
 
 .cadastro_login {
