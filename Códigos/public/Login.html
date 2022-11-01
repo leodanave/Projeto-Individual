@@ -22,9 +22,7 @@
                     <span id="mensagem_erro"></span>
                 </div>
             </div>
-            <div id="div_aguardar" class="loading-div">
-                <img src="./assets/circle-loading.gif" id="loading-gif">
-            </div>
+            
         <div class="campo_login">
             <div class="logo_login">
                 <a href="Index.html"><img src="assets/images/Logo.png" alt=""></a>
@@ -43,6 +41,10 @@
                 </div>
             </div>
             <button class="entrar_login" onclick="entrar()">Entrar</button>
+
+            <div id="div_aguardar" class="loading-div">
+                <img src="./assets/images/Carregamento.gif" id="loadingGif">
+            </div>
 
             <div class="cadastro_login">
                 <h3>Não possui conta? <a class="h3_cadastro" href="Cadastro.html">Cadastre-se</a></h3>
@@ -74,6 +76,10 @@
 
 <script>
 function entrar() {
+
+    const controleGif =  document.getElementById("loadingGif")
+    controleGif.style.display = "none";
+
     aguardar();
 
     var emailVar = input_email.value;
@@ -114,6 +120,10 @@ function entrar() {
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
+
+                setInterval(function() {
+                    controleGif.style.display = "block"
+                }, 0100)
 
                 setTimeout(function () {
                     window.location = "index.html";

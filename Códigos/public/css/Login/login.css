@@ -53,6 +53,7 @@
     padding: 12px;
     color: black;
     margin-top: 5px;
+    margin-bottom: 20px;
     border-radius: 8px;
     width: 100%;
 }
@@ -73,8 +74,8 @@
     border-radius: 8px;
     cursor: pointer;
     transition: 0.2s;
-    margin-bottom: 150px;
-    margin-top: 80px;
+    margin-bottom: 20px;
+    margin-top: 60px;
 }
 
 .campo_login .entrar_login:hover {
@@ -90,7 +91,7 @@
 
 .campo_login .logo_login {
     margin-top: 50px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 
 .cadastro_login {
@@ -131,11 +132,15 @@
 
   .loading-div {
     width: 50px;
-    margin: auto;
-    display: none;
+    display: block;
   }
   
   .loading-div img {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
+  }
+
+
+  #loadingGif {
+    display: none;
   }
