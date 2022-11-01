@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* RESETAR A ESTILIZAÇÃO PADRÃO NOS NAVEGADORES PARA NÃO OCORRER BUGS NA ESTILIZAÇÃO  */
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  background: none;
+}
+
+body {
+  min-height: 100vh;
+}
+
+:root {
+  --blue: #1286c9;
+  --gray: #101017;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a {
+  font-size: 1rem;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #000a22 #010005;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #101017;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #07070c;
+  border-radius: 10px;
+  border: 3px solid #07070c;
+}
+
+.container {
+  max-width: 1100px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  display: block;
+}
+
+.flex {
+  display: flex;
+}
+
+.f-grow {
+  flex: 1;
+}
+
+.gap-120 {
+  gap: 120px;
+}
+
+/* Animação */
+@keyframes slide {
+  100% {
+      opacity: 1;
+      transform: translate(0);
+  }
+}
+
+.pagina_atual {
+  font-weight: 700;
+}

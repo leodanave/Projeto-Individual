@@ -1,0 +1,73 @@
+.howWork {
+    padding: 40px 0;
+
+    background-color: #101017;
+}
+
+.howWork .divider {
+    width: 100%;
+    height: 2px;
+
+    margin-top: -20px;
+
+    background-color: #1286c9;
+
+    position: relative;
+
+    margin-bottom: 80px;
+}
+
+.howWork .divider .text {
+    position: absolute;
+
+    height: auto;
+
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 0 32px;
+
+    background-color: #101017;
+
+    text-align: center;
+
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+}
+
+.howWork .image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 1px 2px 5px rgb(14, 14, 14);
+}
+
+.howWork .paragraphs {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    flex-direction: column;
+}
+
+.howWork .paragraphs p {
+    text-align: justify;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    margin-bottom: 16px;
+
+    text-indent: 32px;
+}
+
+.howWork .paragraphs p:last-of-type {
+    margin-bottom: 0;
+}
+
+.howWork .reference {
+    display: flex;
+    justify-content: center;
+}
