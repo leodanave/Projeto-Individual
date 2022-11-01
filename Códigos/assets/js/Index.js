@@ -47,4 +47,4 @@ function trocarSlide() {
     }
 }
 
-setInterval(trocarSlide, 3000);
+setInterval(trocarSlide, 2500);
