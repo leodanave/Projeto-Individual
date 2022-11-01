@@ -22,7 +22,13 @@
 
 .campo_cadastro .logo_cadastro img {
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
+    transition: 0.2s;
+}
+
+.campo_cadastro .logo_cadastro img:hover {
+    transform: scale(1.03, 1.03);
+    transition: 0.2s;
 }
 
 .campo_cadastro h2 {
