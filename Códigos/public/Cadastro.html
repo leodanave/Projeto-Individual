@@ -97,8 +97,8 @@
         // Agora vá para o método fetch logo abaixo
         var nomeVar = in_nomeUsuario.value;
         var emailVar = in_email.value;
-        var senhaVar = in_senha.value;
-        var confirmacaoSenhaVar = in_confirmacaoSenha.value;
+        var senhaVar = input_senha.value;
+        var confirmacaoSenhaVar = input_confirmacaoSenha.value;
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             cardErro.style.display = "block"
@@ -134,7 +134,7 @@
                 mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
                 setTimeout(() => {
-                    window.location = "login.html";
+                    window.location = "Login.html";
                 }, "2000")
 
                 limparFormulario();
