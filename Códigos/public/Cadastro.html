@@ -29,7 +29,7 @@
             <div class="logo_cadastro">
                 <a href="Index.html"><img src="assets/images/Logo.png" alt=""></a>
             </div>
-            <h2>Faça o cadastro</h2>
+            <h2>Cadastro</h2>
 
             <div class="input_cadastro">
                 <label for="in_nomeUsuario">Insira seu nome de usuário</label>
@@ -41,11 +41,17 @@
             </div>
             <div class="input_cadastro">
                 <label for="in_senha">Insira sua senha</label>
-                <input placeholder="***********" type="text" id="in_senha">
+                <div class="eye_input" id="div_eye_input">
+                    <input placeholder="***********" type="password" id="input_senha">
+                    <button onclick="mudarTipo()"><img id="img_eye" src="assets/images/eye_white.png" alt=""></button>
+                </div>
             </div>
             <div class="input_cadastro">
-                <label for="in_confirmacaoSenha">Confirme sua senha</label>
-                <input placeholder="Confirme sua senha" type="text" id="in_confirmacaoSenha">
+                <label class="confirmacaoSenha" for="in_confirmacaoSenha">Confirme sua senha</label>
+                <div class="eye_input" id="div_eye_input">
+                    <input placeholder="Confirme sua senha" type="password" id="input_confirmacaoSenha">
+                    <button onclick="mudarTipo()"><img id="img_eye1" src="assets/images/eye_white.png" alt=""></button>
+                </div>
             </div>
 
             <button class="button_cadastro" onclick="cadastrar()">Cadastrar</button>
@@ -64,6 +70,24 @@
 </body>
 
 </html>
+
+<script>
+    function mudarTipo() {
+        if (input_senha.type == "password") {
+            input_senha.type = "text"
+            img_eye.src = "assets/images/hidden_white.png"
+
+            input_confirmacaoSenha.type = "text"
+            img_eye1.src = "assets/images/hidden_white.png"
+        } else {
+            input_senha.type = "password"
+            img_eye.src = "assets/images/eye_white.png"
+
+            input_confirmacaoSenha.type = "password"
+            img_eye1.src = "assets/images/eye_white.png"
+        }
+    }
+</script>
 
 <script>
     function cadastrar() {
