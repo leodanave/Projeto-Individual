@@ -1,0 +1,64 @@
+@import url('../main.css');
+@import url('../CaseOpening/CaseOpening.css');
+
+
+
+.container-perfil {
+    background-color: var(--gray);
+    margin-left: 300px;
+    width: calc(100% - 300px);
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-perfil h1 {
+    margin-top: 150px;
+    font-size: 3rem;
+    margin-right: 20px;
+    color: #01a2ff;
+}
+
+.container-images {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-perfil img {
+    margin-top: 80px;
+    width: 170px;
+    transition: 0.4s;
+}
+
+.container-perfil img:last-child {
+    margin-right: 0px;
+}
+
+.container-perfil img:hover {
+    transform: scale(1.02, 1.02);
+    transition: 0.2s;
+}
+
+.container-perfil button {
+    background-color: red;
+    cursor: pointer;
+}
+
+.images-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.images-container h2 {
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.images-container button {
+    margin-right: 20px;
+    cursor: pointer;
+}
