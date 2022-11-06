@@ -20,4 +20,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.post("/cadastrarImagem", function (req, res) {
+    usuarioController.cadastrarImagem(req, res);
+});
+
 module.exports = router;

@@ -3,7 +3,6 @@
 .caseOpening {
     background-color: var(--gray);
     display: flex;
-    flex-direction: column;
     min-height: 100vh;
 }
 
@@ -25,7 +24,7 @@ text-align: center;
 }
 
 .navigation {
-    position: relative;
+    position: fixed;
     min-height: 100vh;
     background-color: #101017;
     width: 300px;
@@ -88,4 +87,77 @@ text-align: center;
 
 .navigation ul li.active {
     background: var(--blue);
+}
+
+.game-phase {
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--gray);
+}
+
+.container-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 80px;
+    border: 2px solid var(--blue);
+    box-shadow: 0px 0px 30px rgba(1, 141, 255, 1);
+    background-color: var(--gray);
+    border-radius: 8px;
+}
+
+.game-phase h1 {
+    margin-bottom: 30px;
+    font-size: 3rem;
+    color: #01a2ff;
+}
+
+.images-game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: row;
+}
+
+.images-game img {
+    margin-right: 4px;
+    width: 250px;
+    border: 2px solid #01a2ff;
+    background-color: #0c0c14;
+    transition: all 0.1s;
+}
+
+.images-game img:last-of-type {
+    margin-right: 0px;
+}
+
+.button-game {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+.button-game button {
+    background-color: #1286c9;
+    color: white;
+    font-size: 1rem;
+    padding: 16px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.button-game button:hover {
+    transform: scale(1.01, 1.01);
+    transition: .2s;
+}
+
+.button-game button:active {
+    transform: scale(0.99, 0.99);
+    transition: .2s;
 }

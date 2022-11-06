@@ -13,70 +13,83 @@
 
     <section class="caseOpening">
 
-        <div class="fixed">
-            <div class="navigation">
+        <div class="navigation">
 
-                <img src="assets/images/Personagens/romanov.png" alt="">
-                
-                <h2>Seja bem vindo <br> <b id="b_usuario">Nome</b></h2>
+            <img id="img_perfil" src="assets/images/Personagens/romanov.png" alt="">
 
-                <ul>
-                    <li class="list active">
-                        <a href="#">
-                            <span class="icon">
-                                <ion-icon name="home-outline"></ion-icon>
-                            </span>
-                            <span class="title">Home</span>
-                        </a>
-                    </li>
+            <h2>Seja bem vindo <br> <b id="b_usuario">Nome</b></h2>
 
-                    <li class="list">
-                        <a href="#">
-                            <span class="icon">
-                                <ion-icon name="person-circle-outline"></ion-icon>
-                            </span>
-                            <span class="title">Usuario</span>
-                        </a>
-                    </li>
+            <ul>
+                <li class="list active">
+                    <a href="CaseOpening.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Game Space</span>
+                    </a>
+                </li>
 
-                    <li class="list">
-                        <a href="#">
-                            <span class="icon">
-                                <ion-icon name="chatbox-ellipses-outline"></ion-icon>
-                            </span>
-                            <span class="title">Messages</span>
-                        </a>
-                    </li>
+                <li class="list">
+                    <a href="PerfilPhoto.html">
+                        <span class="icon">
+                            <ion-icon name="person-circle-outline"></ion-icon>
+                        </span>
+                        <span class="title">Foto de Perfil</span>
+                    </a>
+                </li>
 
-                    <li class="list">
-                        <a href="#">
-                            <span class="icon">
-                                <ion-icon name="settings-outline"></ion-icon>
-                            </span>
-                            <span class="title">Configurações</span>
-                        </a>
-                    </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="analytics-outline"></ion-icon>
+                        </span>
+                        <span class="title">Estatísticas</span>
+                    </a>
+                </li>
 
-                    <li class="list">
-                        <a href="#">
-                            <span class="icon">
-                                <ion-icon name="help-circle-outline"></ion-icon>
-                            </span>
-                            <span class="title">Ajudar</span>
-                        </a>
-                    </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Configurações</span>
+                    </a>
+                </li>
 
-                    <li class="list">
-                        <a href="index.html">
-                            <span class="icon">
-                                <ion-icon name="log-out-outline"></ion-icon>
-                            </span>
-                            <span class="title">Sair</span>
-                        </a>
-                    </li>
-                </ul>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="help-circle-outline"></ion-icon>
+                        </span>
+                        <span class="title">Ajudar</span>
+                    </a>
+                </li>
 
+                <li class="list">
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
+        <div class="game-phase">
+            <div class="container-game">
+                <h1>GANHE UMA SKIN</h1>
+                <div class="images-game">
+                    <img src="https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_awp_cu_awp_hyper_beast_light_large.55efa5e3094af71ca6a56b6eac96cb022f7ecd8b.png"
+                        id="img_1" alt="">
+                    <img src="https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_mp7_cu_mp7_nemsis_light_large.72074e71a27827f41dc5d6f511d2f003c1b60d8a.png"
+                        id="img_2" alt="">
+                    <img src="https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_mp9_am_mp9_nitrogen_light_large.3a0b5a7cd31a7cfd5f0d90b9a0a1dbfcdb642cca.png"
+                        id="img_3" alt="">
+                </div>
+                <div class="button-game">
+                    <button id="btn" onclick="roletar()">Tirar a sorte</button>
+                </div>
             </div>
         </div>
 
@@ -88,5 +101,11 @@
 </body>
 
 </html>
+
+<script>
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    
+</script>
 
 <script src="js/CaseOpening.js"></script>

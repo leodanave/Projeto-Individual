@@ -13,8 +13,25 @@ CREATE TABLE usuario (
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
 email VARCHAR(45),
-senha VARCHAR(45)
+senha VARCHAR(45),
+fkImagem INT,
+FOREIGN KEY (fkImagem) REFERENCES imagem (idImagem)
 );
+
+select * from usuario;
+
+CREATE TABLE imagem (
+idImagem INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(45),
+endereco VARCHAR(300)
+);
+
+INSERT INTO imagem VALUES 
+	(null, 'Ava', 'D:\Documentos\Site individual\Projeto-Individual\Códigos\public\assets\images\Personagens\ava.png'),
+	(null, 'Black Wolf', 'D:\Documentos\Site individual\Projeto-Individual\Códigos\public\assets\images\Personagens\blackwolf.png'),
+	(null, 'Rezan', 'D:\Documentos\Site individual\Projeto-Individual\Códigos\public\assets\images\Personagens\rezan.png'),
+	(null, 'Romanov', 'D:\Documentos\Site individual\Projeto-Individual\Códigos\public\assets\images\Personagens\romanov.png'),
+	(null, 'Slingshot', 'D:\Documentos\Site individual\Projeto-Individual\Códigos\public\assets\images\Personagens\slingshot.png');
 
 /* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
