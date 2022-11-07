@@ -14,18 +14,18 @@
 </head>
 
 <body>
-
+    <div class="alerta_erro" id="alerta_erro">
+        <div class="card_erro" id="cardErro">
+            <span id="mensagem_erro"><h2>dausdnaudnasudnasuds</h2></span>
+        </div>
+</div>
     <section class="cadastro">
         
         <div class="campo_cadastro">
             <div id="div_aguardar" class="loading-div">
                 <img src="./assets/images/Carregamento.gif" id="loading-gif">
             </div>
-            <div class="alerta_erro">
-                <div class="card_erro" id="cardErro">
-                    <span id="mensagem_erro"></span>
-                </div>
-            </div>
+           
             <div class="logo_cadastro">
                 <a href="Index.html"><img src="assets/images/Logo.png" alt=""></a>
             </div>
@@ -123,9 +123,8 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
+                    alerta_erro.style.display = "flex";
                     cardErro.style.display = "block";
-
-                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
                     setTimeout(() => {
                         window.location = "Login.html";
@@ -145,7 +144,7 @@
         }
 
         function sumirMensagem() {
-            cardErro.style.display = "none"
+            cardErro.style.display = "flex"
         }
     }
 
