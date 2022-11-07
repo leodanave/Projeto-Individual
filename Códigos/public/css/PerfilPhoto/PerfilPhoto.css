@@ -42,7 +42,10 @@
 }
 
 .container-perfil button {
-    background-color: red;
+    background-color: var(--blue);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 80px;
     cursor: pointer;
 }
 

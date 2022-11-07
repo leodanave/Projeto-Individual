@@ -126,6 +126,7 @@ text-align: center;
 
 .images-game img {
     margin-right: 4px;
+    height: 225px;
     width: 250px;
     border: 2px solid #01a2ff;
     background-color: #0c0c14;
