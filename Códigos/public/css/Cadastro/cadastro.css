@@ -143,8 +143,42 @@
 
 .alerta_erro h2 {
     animation: aparecer 0.6s;
-    font-size: 5rem;
+    font-size: 4rem;
 }
+
+.bolinhas {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.bolinha {
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 60px;
+    margin-right: 20px;
+    position: relative;
+    animation: carregamento 2s infinite;
+}
+
+.bolinha1 {
+    animation-delay: 0.3s;
+}
+
+.bolinha2 {
+    animation-delay: 0.5s;
+}
+
+.bolinha3 {
+    animation-delay: 0.8s;
+}
+
+@keyframes carregamento {
+    0%   {top: 0px;}
+    50%  {top: 50px;}
+    100% {top: 0px;}
+  }
 
 .card_erro {
     /* 
