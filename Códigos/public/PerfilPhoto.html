@@ -78,30 +78,36 @@
         </div>
 
         <div class="container-perfil">
-            <h1>ESCOLHA UMA FOTO DE PERFIL</h1>
+            <h1 id="h1_images">ATIVE UMA FOTO DE PERFIL</h1>
             <div class="container-images">
                 <div class="images-container">
                     <img src="assets/images/Personagens/ava.png" alt="">
-                    <h2><input id="ava" type="checkbox" value="1">Ava</h2>
+                    <h2>Ava</h2>
+                    <input id="ava" type="checkbox" value="1">
                 </div>
                 <div class="images-container">
                     <img src="assets/images/Personagens/blackwolf.png" alt="">
-                    <h2><input id="blackwolf" type="checkbox" value="2">Black Wolf</h2>
+                    <h2>Black Wolf</h2>
+                    <input id="blackwolf" type="checkbox" value="2">
                 </div>
                 <div class="images-container">
                     <img src="assets/images/Personagens/rezan.png" alt="">
-                    <h2><input id="rezan" type="checkbox" value="3">Rezan</h2>
+                    <h2>Rezan</h2>
+                    <input id="rezan" type="checkbox" value="3">
                 </div>
                 <div class="images-container">
                     <img src="assets/images/Personagens/romanov.png" alt="">
-                    <h2><input id="romanov" type="checkbox" value="4">Romanov</h2>
+                    <h2>Romanov</h2>
+                    <input id="romanov" type="checkbox" value="4">
                 </div>
                 <div class="images-container">
                     <img src="assets/images/Personagens/slingshot.png" alt="">
-                    <h2><input id="slingshot" type="checkbox" value="5">Slingshot</h2>
+                    <h2>Slingshot</h2>
+                    <input id="slingshot" type="checkbox" value="5">
                 </div>
             </div>
             <button onclick="cadastrar()">Confirmar alteração</button>
+            <div id="validacao_imagem" class="validacao_imagem"></div>
         </div>
     </section>
 
@@ -117,62 +123,81 @@
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    var idImagem 
+    var idImagem
 
     function cadastrar() {
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
-        
+
         // var ava = ava.value;
         // var blackwolf = blackwolf.value;
         // var rezan = rezan.value;
         // var romanov = romanov.value;
         // var slingshot = slingshot.value;
 
+        var contador = 0
+
         if (ava.checked) {
             idImagem = 1
-        } else if (blackwolf.checked) {
-            idImagem = 2
-        } else if (rezan.checked) {
-            idImagem = 3
-        } else if (romanov.checked) {
-            idImagem = 4
-        } else if (slingshot.checked) {
-            idImagem = 5
+            contador++
         }
 
-        var idUsuario = sessionStorage.getItem('ID_USUARIO')
-        
+        if (blackwolf.checked) {
+            idImagem = 2
+            contador++
+        }
 
-        // Enviando o valor da nova input
-        // DANDO PROBLEMA 
-        fetch("/usuarios/cadastrarImagem", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                idUsuario: idUsuario,
-                idImagem: idImagem
-            })
-        }).then(function (resposta) {
+        if (rezan.checked) {
+            idImagem = 3
+            contador++
+        }
 
-            console.log("resposta: ", resposta);
+        if (romanov.checked) {
+            idImagem = 4
+            contador++
+        }
 
-            if (resposta.ok) {
-                alert("Inserimos")
-                // Recuperando a imagem que o usuário escolheu
-                sessionStorage.setItem('fkImagem', `${idImagem}`)
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
+        if (slingshot.checked) {
+            idImagem = 5
+            contador++
+        }
 
-        return false;
+        if (contador > 1) {
+            validacao_imagem.innerHTML = `*Escolha apenas uma foto de perfil!*`
+        } else {
+
+            var idUsuario = sessionStorage.getItem('ID_USUARIO')
+
+            // Enviando o valor da nova input
+            // DANDO PROBLEMA 
+            fetch("/usuarios/cadastrarImagem", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    idUsuario: idUsuario,
+                    idImagem: idImagem
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    alert("Inserimos")
+                    // Recuperando a imagem que o usuário escolheu
+                    sessionStorage.setItem('fkImagem', `${idImagem}`)
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
+        }
     }
 
 
