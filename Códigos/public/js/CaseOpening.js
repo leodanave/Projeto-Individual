@@ -60,8 +60,6 @@ function roletar() {
         vencerPerder();
     }, 10000);
 
-
-
 }
 
 var skin1

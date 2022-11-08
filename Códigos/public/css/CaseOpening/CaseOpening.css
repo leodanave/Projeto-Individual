@@ -147,9 +147,12 @@ text-align: center;
     background-color: #1286c9;
     color: white;
     font-size: 1rem;
-    padding: 16px 30px;
     border-radius: 4px;
+    
+    padding: 16px 30px;
+    
     cursor: pointer;
+    
     transition: 0.2s;
 }
 
@@ -161,4 +164,37 @@ text-align: center;
 .button-game button:active {
     transform: scale(0.99, 0.99);
     transition: .2s;
+}
+
+.subtitles {
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    padding-top: 30px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    background-color: var(--gray);
+}
+
+.sub-items {
+    margin-top: 20px;
+    margin-left: 130px;
+    display: flex;
+    align-items: center;
+}
+
+.sub-items:last-of-type {
+    margin-bottom: 50px;
+}
+
+.subtitles img {
+    width: 40px;
+    margin-right: 20px;
+}
+
+.subtitles h3 {
+    font-size: 1rem ;
+    font-weight: 400;
 }
