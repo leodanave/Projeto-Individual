@@ -125,10 +125,10 @@ function cadastrarImagem(req, res) {
 
 function mostrarImagem(req, res) {
     // Pesquisar req.params
-    var id = req.params.idImagem
+    var idImagem = req.params.idImagem
     console.log("Esse é o id " + id);
 
-    usuarioModel.mostrarImagem(id)
+    usuarioModel.mostrarImagem(idImagem)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
