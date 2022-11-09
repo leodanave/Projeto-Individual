@@ -108,6 +108,9 @@
             </div>
             <button onclick="cadastrar()">Confirmar alteração</button>
             <div id="validacao_imagem" class="validacao_imagem"></div>
+            <div>
+                <button onclick="carregar()">dhasuhdashdias</button>
+            </div>
         </div>
     </section>
 
@@ -124,6 +127,22 @@
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     var idImagem
+
+    function carregar() {
+        var id = sessionStorage.FK_IMAGEM
+
+        console.log(id)
+
+        var requestOptions = {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'default'
+        };
+
+        fetch(`/${id}`, requestOptions)
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+    }
 
     function cadastrar() {
         //Recupere o valor da nova input pelo nome do id
@@ -188,7 +207,7 @@
                 if (resposta.ok) {
                     alert("Inserimos")
                     // Recuperando a imagem que o usuário escolheu
-                    sessionStorage.setItem('fkImagem', `${idImagem}`)
+                    sessionStorage.FK_IMAGEM = idImagem;
                 } else {
                     throw ("Houve um erro ao tentar realizar o cadastro!");
                 }

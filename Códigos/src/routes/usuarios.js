@@ -24,4 +24,9 @@ router.post("/cadastrarImagem", function (req, res) {
     usuarioController.cadastrarImagem(req, res);
 });
 
+router.get("/:idImagem", function (req, res) {
+    // Pesquisar isso 
+    usuarioController.mostrarImagem(req, res);
+});
+
 module.exports = router;
