@@ -122,13 +122,15 @@
                     sessionStorage.ID_USUARIO = json.idUsuario;
                     sessionStorage.FK_IMAGEM = json.fkImagem;
 
+                    carregar()
+
                     setInterval(function () {
                         controleGif.style.display = "block"
                     }, 0100)
 
                     setTimeout(function () {
                         window.location = "CaseOpening.html";
-                    }, 0000); // apenas para exibir o loading
+                    }, 1000); // apenas para exibir o loading
 
                 });
 
@@ -151,6 +153,30 @@
 
     function sumirMensagem() {
         cardErro.style.display = "none"
+    }
+
+    function carregar() {
+        var id = sessionStorage.FK_IMAGEM;
+
+        console.log(id)
+
+        fetch(`/usuarios/mostrarImagem/${id}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    var json = JSON.stringify(resposta);
+                    console.log(resposta[0].endereco);
+                    sessionStorage.ENDERECO = resposta[0].endereco
+
+                    console.log('Funcionou!')
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
     }
 
 </script>

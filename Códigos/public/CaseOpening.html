@@ -15,7 +15,7 @@
 
         <div class="navigation">
 
-            <img id="img_perfil" src="assets/images/Personagens/romanov.png" alt="">
+            <img id="image_perfil" src="assets/images/Personagens/romanov.png" alt="">
 
             <h2>Seja bem vindo <br> <b id="b_usuario">Nome</b></h2>
 
@@ -39,7 +39,7 @@
                 </li>
 
                 <li class="list">
-                    <a href="#">
+                    <a href="statistics.html">
                         <span class="icon">
                             <ion-icon name="analytics-outline"></ion-icon>
                         </span>
@@ -48,25 +48,15 @@
                 </li>
 
                 <li class="list">
-                    <a href="#">
+                    <a href="mural.html">
                         <span class="icon">
-                            <ion-icon name="settings-outline"></ion-icon>
+                            <ion-icon name="chatbox-ellipses-outline"></ion-icon>
                         </span>
-                        <span class="title">Configurações</span>
+                        <span class="title">Mural de Feedbacks</span>
                     </a>
                 </li>
 
-                <li class="list">
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="help-circle-outline"></ion-icon>
-                        </span>
-                        <span class="title">Ajudar</span>
-                    </a>
-                </li>
-
-                <div class="btn-logout" onclick="limparSessao()" >
-                <li class="list" >
+                <li class="list" onclick="limparSessao()">
                     <a href="login.html">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
@@ -74,7 +64,6 @@
                         <span class="title">Sair</span>
                     </a>
                 </li>
-            </div>
             </ul>
         </div>
 
@@ -101,15 +90,6 @@
     
 </section>
 
-<div class="subtitles">
-    <div class="sub-items">
-        <img src="assets/images/success.png" alt="">
-        <h3 style="color: rgb(2, 222, 2);">É necessário cair três skins iguais para vencer!</h3>
-    </div>
-    <div class="sub-items">
-        <img src="assets/images/lose.png" alt="">
-        <h3 style="color: red;">Se uma das skins for diferente, tente outra vez! 😥</h3>
-    </div>
 </body>
 
 </html>
@@ -118,6 +98,13 @@
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     
+    window.onload = abc();
+
+    function abc() {
+        var image = sessionStorage.ENDERECO
+
+        image_perfil.src = `${image}`
+    }
 
 </script>
 

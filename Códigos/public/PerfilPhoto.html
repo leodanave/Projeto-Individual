@@ -16,7 +16,7 @@
 
         <div class="navigation">
 
-            <img src="assets/images/Personagens/romanov.png" alt="">
+            <img id="image_perfil" src="assets/images/Personagens/romanov.png" alt="">
 
             <h2>Seja bem vindo <br> <b id="b_usuario">Nome</b></h2>
 
@@ -40,7 +40,7 @@
                 </li>
 
                 <li class="list">
-                    <a href="#">
+                    <a href="statistics.html">
                         <span class="icon">
                             <ion-icon name="analytics-outline"></ion-icon>
                         </span>
@@ -49,31 +49,21 @@
                 </li>
 
                 <li class="list">
-                    <a href="#">
+                    <a href="mural.html">
                         <span class="icon">
-                            <ion-icon name="settings-outline"></ion-icon>
+                            <ion-icon name="chatbox-ellipses-outline"></ion-icon>
                         </span>
-                        <span class="title">Configurações</span>
+                        <span class="title">Mural de Feedbacks</span>
                     </a>
                 </li>
-
-                <li class="list">
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="help-circle-outline"></ion-icon>
-                        </span>
-                        <span class="title">Ajudar</span>
-                    </a>
-                </li>
-
-                <li class="list">
-                    <a href="index.html">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </span>
-                        <span class="title">Sair</span>
-                    </a>
-                </li>
+                    <li class="list" onclick="limparSessao()" >
+                        <a href="login.html">
+                            <span class="icon">
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </span>
+                            <span class="title">Sair</span>
+                        </a>
+                    </li>
             </ul>
         </div>
 
@@ -124,6 +114,37 @@
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     var idImagem
+
+    window.onload = abc();
+
+    function abc(image) {
+        var image = sessionStorage.ENDERECO
+
+        image_perfil.src = `${image}`
+    }
+
+    function carregar() {
+        var id = sessionStorage.FK_IMAGEM;
+
+        console.log(id)
+
+        fetch(`/usuarios/mostrarImagem/${id}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    var json = JSON.stringify(resposta);
+                    console.log(resposta[0].endereco);
+                    sessionStorage.ENDERECO = resposta[0].endereco
+                    abc()
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
 
     function cadastrar() {
         //Recupere o valor da nova input pelo nome do id
@@ -185,9 +206,15 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    alert("Inserimos")
+
+                    atualizar()
+
+                    setTimeout(function () {
+                        sessionStorage.FK_IMAGEM = idImagem;
+                        carregar()
+                    }, 1500);
                     // Recuperando a imagem que o usuário escolheu
-                    sessionStorage.FK_IMAGEM = idImagem;
+
                 } else {
                     throw ("Houve um erro ao tentar realizar o cadastro!");
                 }
@@ -197,25 +224,16 @@
 
             return false;
         }
+
     }
 
+    function atualizar() {
+        validacao_imagem.innerHTML = `<span style="color:white;">Atualizando imagem...</span>`
 
+        setTimeout(() => {
+           validacao_imagem.innerHTML = `<span style="color:white;">Imagem atualizada com sucesso!</span>` 
+        }, 1500);
+    }
 </script>
 
-<script>
-    // function carregar() {
-    //     var id = sessionStorage.FK_IMAGEM;
-
-    //     console.log(id)
-
-    //     var requestOptions = {
-    //         method: 'GET',
-    //         mode: 'cors',
-    //         cache: 'default'
-    //     };
-
-    //     fetch(`/usuarios/mostrarImagem/${id}`, requestOptions)
-    //         .then(result => console.log(result)) 
-    //         .catch(error => console.log('error', error));
-    // }
-</script>
+<script src="js/funcoes.js"></script>
