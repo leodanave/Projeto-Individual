@@ -29,4 +29,12 @@ router.get("/mostrarImagem/:idImagem", function (req, res) {
     usuarioController.mostrarImagem(req, res);
 });
 
+router.post("/mandarTrue", function (req, res) {
+    usuarioController.mandarTrue(req, res);
+})
+
+router.post("/mandarFalse", function (req, res) {
+    usuarioController.mandarFalse(req, res);
+})
+
 module.exports = router;

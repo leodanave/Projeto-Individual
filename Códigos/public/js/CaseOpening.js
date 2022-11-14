@@ -74,6 +74,7 @@ function vencerPerder() {
         document.getElementById("img_2").style.border = "2px solid rgb(0, 255, 0)";
         document.getElementById("img_3").style.border = "2px solid rgb(0, 255, 0)";
         venceu_perdeu.innerHTML = `<span style="color: rgb(0, 255, 0);">VOCÊ GANHOU 🤑</span>`;
+        mandarTrue();
     } else {
         document.getElementById("container_game").style.border = "2px solid red";
         document.getElementById("container_game").style.boxShadow = "0px 0px 30px red";
@@ -81,6 +82,7 @@ function vencerPerder() {
         document.getElementById("img_2").style.border = "2px solid red";
         document.getElementById("img_3").style.border = "2px solid red";
         venceu_perdeu.innerHTML = `<span style="color: red;">VOCÊ PERDEU 😪</span>`;
+        mandarFalse();
     }
 }
 
@@ -105,7 +107,7 @@ function consoleLog() {
     } else if (randomico < 100) {
         img_1.src = evilDaimyo
         skin1 = 'evilDaimyo'
-    } 
+    }
 
     if (randomico1 < 20) {
         img_2.src = hyperBeast
@@ -122,7 +124,7 @@ function consoleLog() {
     } else if (randomico1 < 100) {
         img_2.src = evilDaimyo
         skin2 = 'evilDaimyo'
-    } 
+    }
 
     if (randomico2 < 20) {
         img_3.src = hyperBeast
@@ -139,10 +141,79 @@ function consoleLog() {
     } else if (randomico2 < 100) {
         img_3.src = evilDaimyo
         skin3 = 'evilDaimyo'
-    } 
-
-
+    }
 }
 
+function mandarTrue() {
+    var idUsuario = sessionStorage.getItem('ID_USUARIO')
+
+    // Enviando o valor da nova input
+    // DANDO PROBLEMA 
+    fetch("/usuarios/mandarTrue", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            idUsuario: idUsuario,
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+
+            setTimeout(function () {
+                sessionStorage.FK_USUARIO = idUsuario;
+            }, 1500);
+            // Recuperando a imagem que o usuário escolheu
+
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
+    return false;
+}
+
+function mandarFalse() {
+    var idUsuario = sessionStorage.getItem('ID_USUARIO')
+
+    // Enviando o valor da nova input
+    // DANDO PROBLEMA 
+    fetch("/usuarios/mandarFalse", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            idUsuario: idUsuario,
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+
+            setTimeout(function () {
+                sessionStorage.FK_USUARIO = idUsuario;
+            }, 1500);
+            // Recuperando a imagem que o usuário escolheu
+
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
+    return false;
+}
 
 
