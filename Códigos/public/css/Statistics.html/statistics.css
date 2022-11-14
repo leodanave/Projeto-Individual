@@ -1,0 +1,17 @@
+@import url(../CaseOpening/CaseOpening.css);
+
+.canvas {
+    margin-left: 300px;
+    width: calc(100vw - 300px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-canvas {
+    width: 80%;
+    height: 80%;
+}
+
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/CaseOpening/CaseOpening.css">
+    <link rel="stylesheet" href="css/Statistics.html/statistics.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <section class="caseOpening">
+
+        <div class="navigation">
+
+            <img id="image_perfil" src="assets/images/Personagens/romanov.png" alt="">
+
+            <h2>Seja bem vindo <br> <b id="b_usuario">Nome</b></h2>
+
+            <ul>
+                <li class="list">
+                    <a href="CaseOpening.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Game Space</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <a href="PerfilPhoto.html">
+                        <span class="icon">
+                            <ion-icon name="person-circle-outline"></ion-icon>
+                        </span>
+                        <span class="title">Foto de Perfil</span>
+                    </a>
+                </li>
+
+                <li class="list active">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="analytics-outline"></ion-icon>
+                        </span>
+                        <span class="title">Estatísticas</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <a href="mural.html">
+                        <span class="icon">
+                            <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+                        </span>
+                        <span class="title">Mural de Feedbacks</span>
+                    </a>
+                </li>
+
+                <li class="list" onclick="limparSessao()">
+                    <a href="login.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="canvas">
+            <div class="container-canvas">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
+
+<script>
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    window.onload = abc();
+
+    function abc() {
+        var image = sessionStorage.ENDERECO
+
+        image_perfil.src = `${image}`
+    }
+
+</script>
+
+<script>
+    const labels = [
+        'Rodadas Vencidas',
+        'Rodadas Perdidas',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Estatísticas referente a roleta',
+            backgroundColor: '#1286c9',
+            borderColor: 'rgb(255, 99, 132',
+            data: [8, 10, 5, 2, 20, 30, 45],
+        }]
+    };
+
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {}
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+</script>
