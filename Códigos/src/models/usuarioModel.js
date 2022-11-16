@@ -76,6 +76,25 @@ function mandarFalse(idUsuario) {
     return database.executar(instrucao);
 }
 
+function puxarTrue(fkUsuario) {
+    // console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+        SELECT COUNT(resultado) Ganhou FROM analytic WHERE resultado = 'true' and fkUsuario = ${fkUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function puxarFalse(fkUsuario) {
+    // console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+        SELECT COUNT(resultado) Perdeu FROM analytic WHERE resultado = 'false' and fkUsuario = ${fkUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
 module.exports = {
     entrar,
     cadastrar,
@@ -84,4 +103,6 @@ module.exports = {
     mostrarImagem,
     mandarTrue,
     mandarFalse,
+    puxarTrue,
+    puxarFalse,
 };

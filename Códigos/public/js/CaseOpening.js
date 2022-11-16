@@ -75,6 +75,10 @@ function vencerPerder() {
         document.getElementById("img_3").style.border = "2px solid rgb(0, 255, 0)";
         venceu_perdeu.innerHTML = `<span style="color: rgb(0, 255, 0);">VOCÊ GANHOU 🤑</span>`;
         mandarTrue();
+        setTimeout(() => {
+            puxarTrue()
+        }, 0500);
+  
     } else {
         document.getElementById("container_game").style.border = "2px solid red";
         document.getElementById("container_game").style.boxShadow = "0px 0px 30px red";
@@ -83,6 +87,9 @@ function vencerPerder() {
         document.getElementById("img_3").style.border = "2px solid red";
         venceu_perdeu.innerHTML = `<span style="color: red;">VOCÊ PERDEU 😪</span>`;
         mandarFalse();
+        setTimeout(() => {
+            puxarFalse()
+        }, 0500);
     }
 }
 
@@ -214,6 +221,46 @@ function mandarFalse() {
     });
 
     return false;
+}
+
+function puxarTrue() {
+    var fkUsuario = sessionStorage.FK_USUARIO;
+
+    fetch(`/usuarios/puxarTrue/${fkUsuario}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                var json = JSON.stringify(resposta);
+                console.log(resposta[0].Ganhou);
+                sessionStorage.RESULTADO_POSITIVO = resposta[0].Ganhou
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+function puxarFalse() {
+    var fkUsuario = sessionStorage.FK_USUARIO;
+
+    fetch(`/usuarios/puxarFalse/${fkUsuario}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                var json = JSON.stringify(resposta);
+                console.log(resposta[0].Perdeu);
+                sessionStorage.RESULTADO_NEGATIVO = resposta[0].Perdeu
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
 }
 
 

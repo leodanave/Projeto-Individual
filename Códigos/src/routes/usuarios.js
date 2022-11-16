@@ -25,7 +25,6 @@ router.post("/cadastrarImagem", function (req, res) {
 });
 
 router.get("/mostrarImagem/:idImagem", function (req, res) {
-    // Pesquisar isso 
     usuarioController.mostrarImagem(req, res);
 });
 
@@ -36,5 +35,13 @@ router.post("/mandarTrue", function (req, res) {
 router.post("/mandarFalse", function (req, res) {
     usuarioController.mandarFalse(req, res);
 })
+
+router.get("/puxarTrue/:fkUsuario", function (req, res) {
+    usuarioController.puxarTrue(req, res);
+});
+
+router.get("/puxarFalse/:fkUsuario", function (req, res) {
+    usuarioController.puxarFalse(req, res);
+});
 
 module.exports = router;

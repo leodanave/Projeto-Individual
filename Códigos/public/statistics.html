@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body onload="abc()">
 
     <section class="caseOpening">
 
@@ -31,21 +31,21 @@
                     </a>
                 </li>
 
-                <li class="list">
-                    <a href="PerfilPhoto.html">
-                        <span class="icon">
-                            <ion-icon name="person-circle-outline"></ion-icon>
-                        </span>
-                        <span class="title">Foto de Perfil</span>
-                    </a>
-                </li>
-
                 <li class="list active">
                     <a href="#">
                         <span class="icon">
                             <ion-icon name="analytics-outline"></ion-icon>
                         </span>
                         <span class="title">Estatísticas</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <a href="PerfilPhoto.html">
+                        <span class="icon">
+                            <ion-icon name="person-circle-outline"></ion-icon>
+                        </span>
+                        <span class="title">Foto de Perfil</span>
                     </a>
                 </li>
 
@@ -69,9 +69,12 @@
             </ul>
         </div>
 
-        <div class="canvas">
-            <div class="container-canvas">
-                <canvas id="myChart"></canvas>
+        <div class="main-canvas">
+            <div class="canvas">
+                <h2>VEJA SEU DESEMPENHO NA ROLETA!</h2>
+                <div class="container-canvas">
+                    <canvas id="myChart"></canvas>
+                </div>
             </div>
         </div>
 
@@ -80,6 +83,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="./js/funcoes.js"></script>
 
 </body>
 
@@ -89,41 +93,134 @@
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    window.onload = abc();
-
     function abc() {
         var image = sessionStorage.ENDERECO
 
         image_perfil.src = `${image}`
+
+        puxarTrue()
+        puxarFalse()
     }
 
 </script>
 
 <script>
+    var metricaWin = sessionStorage.getItem('RESULTADO_POSITIVO')
+    var metricaLose = sessionStorage.getItem('RESULTADO_NEGATIVO')
+
+    setTimeout(() => {
+        metricaWin;
+        metricaLose;
+    }, 1000);
+
     const labels = [
-        'Rodadas Vencidas',
-        'Rodadas Perdidas',
+        'Rodadas',
     ];
+
+    // const data = {
+    //     labels: labels,
+    //     datasets: [{
+    //         label: 'Estatísticas referente a roleta',
+    //         backgroundColor: '#1286c9',
+    //         borderColor: 'rgb(255, 99, 132',
+    //         data: [10, 8],
+    //     }]
+    // };
 
     const data = {
         labels: labels,
         datasets: [{
-            label: 'Estatísticas referente a roleta',
-            backgroundColor: '#1286c9',
-            borderColor: 'rgb(255, 99, 132',
-            data: [8, 10],
+            label: 'Vencidas',
+            data: [metricaWin],
+            fill: false,
+            backgroundColor: 'rgb(0, 255, 0)',
+            borderColor: 'rgb(0, 255, 0',
+        },
+        {
+            label: 'Perdidas',
+            data: [metricaLose],
+            fill: false,
+            backgroundColor: 'rgb(255, 0, 0)',
+            borderColor: 'rgb(255, 0, 0)',
         }]
     };
-
 
     const config = {
         type: 'bar',
         data: data,
-        options: {}
+        options: {
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        color: 'white'
+                    },
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        color: 'white'
+                    },
+                    grid: {
+                        color: '#00a2ff'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'white'
+                    },
+                    grid: {
+                        color: '#00a2ff'
+                    }
+                }
+            }
+        }
     };
 
     const myChart = new Chart(
         document.getElementById('myChart'),
         config
     );
+
+    function puxarTrue() {
+        var fkUsuario = sessionStorage.FK_USUARIO;
+
+        fetch(`/usuarios/puxarTrue/${fkUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    var json = JSON.stringify(resposta);
+                    console.log(resposta[0].Ganhou);
+                    sessionStorage.RESULTADO_POSITIVO = resposta[0].Ganhou
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function puxarFalse() {
+        var fkUsuario = sessionStorage.FK_USUARIO;
+
+        fetch(`/usuarios/puxarFalse/${fkUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    var json = JSON.stringify(resposta);
+                    console.log(resposta[0].Perdeu);
+                    sessionStorage.RESULTADO_NEGATIVO = resposta[0].Perdeu
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
 </script>

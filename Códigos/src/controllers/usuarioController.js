@@ -201,6 +201,48 @@ function mandarFalse(req, res) {
     }
 }
 
+function puxarTrue(req, res) {
+    // Pesquisar req.params
+    var fkUsuario = req.params.fkUsuario
+    console.log("Esse é o id " + fkUsuario);
+
+    usuarioModel.puxarTrue(fkUsuario)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function puxarFalse(req, res) {
+    // Pesquisar req.params
+    var fkUsuario = req.params.fkUsuario
+    console.log("Esse é o id " + fkUsuario);
+
+    usuarioModel.puxarFalse(fkUsuario)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -210,4 +252,6 @@ module.exports = {
     mostrarImagem,
     mandarTrue,
     mandarFalse,
+    puxarTrue,
+    puxarFalse,
 }
