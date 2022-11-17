@@ -180,7 +180,7 @@
     100% {top: 0px;}
   }
 
-.card_erro {
+/* .card_erro { */
     /* 
     display: block;
     background-color: rgb(13, 14, 20);
@@ -189,8 +189,7 @@
     border-radius: 4px;
     border: var(--blue) 3px solid;
     padding: 10px; */
-
-}
+/* } */
 
 .card_erro #mensagem_erro {
     font-weight: 500;
