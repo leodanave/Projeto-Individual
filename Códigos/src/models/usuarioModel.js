@@ -12,7 +12,7 @@ function listar() {
 function entrar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
-        SELECT * FROM usuario JOIN imagemUsuario ON idUsuario = fkUsuario WHERE email = '${email}' AND senha = sha2('${senha}', 256);
+        SELECT * FROM usuario WHERE email = '${email}' AND senha = sha2('${senha}', 256);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -25,19 +25,7 @@ function cadastrar(nome, email, senha) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO usuario (nome, email, senha) VALUES ('${nome}', '${email}', sha2('${senha}', 256));
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
-function inserirImagem(fkUsuario) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", fkUsuario);
-    
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
-    var instrucao = `
-        INSERT INTO imagemUsuario (fkImagem, fkUsuario) VALUES (1, ${fkUsuario});
+        INSERT INTO usuario (nome, email, senha, fkImagem) VALUES ('${nome}', '${email}', sha2('${senha}', 256), 1);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -49,7 +37,7 @@ function cadastrarImagem(idUsuario, idImagem) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        UPDATE imagemUsuario SET fkImagem = ${idImagem} WHERE fkUsuario = ${idUsuario};
+        UPDATE usuario SET fkImagem = ${idImagem} WHERE idUsuario = ${idUsuario};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -58,7 +46,7 @@ function cadastrarImagem(idUsuario, idImagem) {
 function mostrarImagem(idImagem) {
     // console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
-        SELECT * FROM imagem JOIN imagemUsuario ON idImagem = fkImagem WHERE fkImagem = ${idImagem};
+        SELECT * FROM imagem WHERE idImagem = ${idImagem};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -111,7 +99,6 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
-    inserirImagem,
     cadastrarImagem,
     mostrarImagem,
     mandarTrue,

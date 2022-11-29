@@ -20,20 +20,12 @@ CREATE TABLE usuario (
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
 email VARCHAR(45),
-senha VARCHAR(45)
+senha VARCHAR(256),
+fkImagem INT,
+FOREIGN KEY (fkImagem) REFERENCES imagem (idImagem)
 );
 
 select * from usuario;
-
-CREATE TABLE imagemUsuario (
-fkImagem INT,
-FOREIGN KEY (fkImagem) REFERENCES imagem (idImagem),
-fkUsuario INT, 
-FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario),
-PRIMARY KEY (fkImagem, fkUsuario)
-);
-
-select * from imagemUsuario;
 
 CREATE TABLE analytic (
 idAnalytic INT AUTO_INCREMENT,
