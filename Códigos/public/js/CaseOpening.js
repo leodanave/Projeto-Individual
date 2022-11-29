@@ -18,15 +18,6 @@ var aquamarine = "assets/images/Skins/aquamarine.png"
 var nemesis = "assets/images/Skins/nemesis.png"
 var yellowJacket = "assets/images/Skins/yellowJacket.png"
 var evilDaimyo = "assets/images/Skins/evilDaimyo.png"
-// var loudmouth = "assets/images/Skins/loudmouth.png"
-// var handgun = "assets/images/Skins/handgun.png"
-// var poisonDart = "assets/images/Skins/poisonDart.png"
-// var neuralNet = "assets/images/Skins/neuralNet.png"
-// var rocketPop = "assets/images/Skins/rocketPop.png"
-// var torque = "assets/images/Skins/torque.png"
-// var bunsenBurner = "assets/images/Skins/bunsenBurner.png"
-// var ranger = "assets/images/Skins/ranger.png"
-// var riot = "assets/images/Skins/riot.png"
 
 let variavel;
 let variavel1;

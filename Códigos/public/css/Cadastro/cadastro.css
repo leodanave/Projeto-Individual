@@ -133,10 +133,11 @@
 }
 
 @keyframes aparecer {
-    0%{
+    0% {
         opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 0.85;
     }
 }
@@ -175,13 +176,21 @@
 }
 
 @keyframes carregamento {
-    0%   {top: 0px;}
-    50%  {top: 50px;}
-    100% {top: 0px;}
-  }
+    0% {
+        top: 0px;
+    }
+
+    50% {
+        top: 50px;
+    }
+
+    100% {
+        top: 0px;
+    }
+}
 
 /* .card_erro { */
-    /* 
+/* 
     display: block;
     background-color: rgb(13, 14, 20);
     color: white;
@@ -206,4 +215,9 @@
 .loading-div img {
     height: 50px;
     width: 50px;
+}
+
+#div_erros_login {
+    position: absolute;
+    bottom: 60px;
 }

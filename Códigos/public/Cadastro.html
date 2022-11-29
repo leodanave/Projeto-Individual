@@ -67,15 +67,15 @@
 
             <button class="button_cadastro" onclick="cadastrar()">Cadastrar</button>
 
+            <div id="div_erros_login">
+
+            </div>
+
             <div class="login_cadastro">
                 <h3>Já possui uma conta? <a class="h3_login" href="Login.html">Entre aqui</a></h3>
             </div>
         </div>
 
-
-        <div id="div_erros_login">
-
-        </div>
     </section>
 
 </body>
@@ -85,6 +85,8 @@
 <script src="js/cadastro.js"></script>
 
 <script>
+    var cor = "<span style='color: yellow;'>"
+
     function cadastrar() {
 
         var nomeUsuario = in_nomeUsuario.value;
@@ -92,8 +94,18 @@
         var senha = input_senha.value;
         var senhaConfirmacao = input_confirmacaoSenha;
 
+        var senhaCaracteres = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/;
+        var emailPadrao = /\S+@\S+\.\S+/;
+
         if (nomeUsuario == '' || email == '' || senha == '' || senhaConfirmacao == '') {
-            alert('Verifique o preenchimento dos campos!')
+            // alert('Verifique o preenchimento dos campos!')
+            div_erros_login.innerHTML = cor + "Verifique o preenchimento dos campos!"
+        } else if (input_senha.value.match(senhaCaracteres) == null) {
+            div_erros_login.innerHTML = cor + "Sua senha deve ter caracteres especiais e alfanuméricos!"
+        } else if (input_senha.value != input_confirmacaoSenha.value) {
+            div_erros_login.innerHTML = cor + "A senha e a confirmação de senha não coincidem!"
+        } else if (emailPadrao.test(in_email.value) == false) {
+            div_erros_login.innerHTML = cor + "Digite seu email de forma correta!"
         } else {
             aguardar();
 
@@ -137,7 +149,7 @@
                     cardErro.style.display = "block";
 
                     setTimeout(() => {
-                        inserirImagem()  
+                        inserirImagem()
                     }, 1000);
 
                     setTimeout(() => {
@@ -162,36 +174,37 @@
         }
     }
 
+
     function inserirImagem() {
-            // var idUsuario = sessionStorage.getItem('ID_USUARIO')
+        // var idUsuario = sessionStorage.getItem('ID_USUARIO')
 
-            // Enviando o valor da nova input
-            // DANDO PROBLEMA 
-            fetch("/usuarios/inserirImagem", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/usuario.js
-                    // idUsuario: idUsuario,
-                })
-            }).then(function (resposta) {
+        // Enviando o valor da nova input
+        // DANDO PROBLEMA 
+        fetch("/usuarios/inserirImagem", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                // idUsuario: idUsuario,
+            })
+        }).then(function (resposta) {
 
-                console.log("resposta: ", resposta);
+            console.log("resposta: ", resposta);
 
-                if (resposta.ok) {
+            if (resposta.ok) {
 
-                    atualizar()
+                atualizar()
 
-                } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
 
-            return false;
-        }
+        return false;
+    }
 </script>

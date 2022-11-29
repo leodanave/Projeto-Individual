@@ -6,7 +6,6 @@ function mudarTipo() {
         input_confirmacaoSenha.type = "text"
         img_eye1.src = "assets/images/hidden_white.png"
 
-        div_validacao.innerHTML = `dansdasujdhnasudbasuidbas`
     } else {
         input_senha.type = "password"
         img_eye.src = "assets/images/eye_white.png"
@@ -15,4 +14,5 @@ function mudarTipo() {
         img_eye1.src = "assets/images/eye_white.png"
     }
 }
+
 
