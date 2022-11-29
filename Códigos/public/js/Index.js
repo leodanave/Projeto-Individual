@@ -48,3 +48,66 @@ function trocarSlide() {
 }
 
 setInterval(trocarSlide, 2500);
+
+// Animações 
+
+// Debounce do Lodash (otimização da função)
+// const debounce = function(func, wait, immediate) {
+//     let timeout;
+//     return function(...args) {
+//         const context = this;
+//         const later = function () {
+//             timeout = null;
+//             if (!immediate) func.apply(context, args);
+//         };
+
+//         const callNow = immediate && !timeout;
+//         clearTimeout(timeout);
+//         timeout = setTimeout(later, wait);
+//         if (callNow) func.apply(context, args);
+//     };
+// };
+
+const target = document.querySelectorAll('[data-move]');
+const animationClass = 'animate'
+
+function moveScroll() {
+    const windowTop = window.pageYOffset + ((window.innerHeight * 3) / 4);
+    target.forEach(function (element) {
+        if ((windowTop) > element.offsetTop) {
+            element.classList.add(animationClass)
+        } else {
+            element.classList.remove(animationClass)
+        }
+    })
+}
+
+moveScroll()
+
+if (target.length) {
+    window.addEventListener('scroll', function () {
+        moveScroll();
+    });
+}
+
+
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    slideIndex++;
+
+    if (slideIndex > slides.length) {
+        slideIndex = 1
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 2500); // Change image every 2 seconds
+}

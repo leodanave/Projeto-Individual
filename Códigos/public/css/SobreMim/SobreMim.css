@@ -4,13 +4,190 @@
     background-color: #0e0e15;
 
     margin-top: 80px;
-    height: calc(100vh - 80px);
 
     display: flex;
     justify-content: center;
 }
 
+.container {
+    width: 100%;
+}
+
 .aboutMe .container h1 {
-    margin-top: 40px;
-    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 3rem;
+}
+
+.aboutMe .firstPart {
+    width: 100%;
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;    
+}
+
+.aboutMe .firstPart img {
+    width: 300px;
+    /* box-shadow: 0px 0px 20px #1286c9; */
+    margin-left: 120px;
+    margin-bottom: 140px;
+    transition: 0.5s;
+    border-radius: 20px;
+}
+
+.aboutMe .firstPart img:hover {
+    transform: scale(1.01);
+    transition: 0.5s;
+}
+
+.aboutMe .firstPart p {
+    text-align: justify;
+}
+
+.secondPartSection {
+    background-color: #0e0e15;
+    padding-bottom: 30px;
+}
+
+.container .secondPart .divider {
+    width: 100%;
+    height: 2px;
+    position: relative;
+
+    background-color: #1286c9;
+    margin-bottom: 120px;
+}
+
+.container .secondPart .divider h1 {
+    position: absolute;
+
+    
+    width: 700px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #0e0e15;
+
+    text-align: center;
+
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+}
+
+.contentSecondPart {
+    display: flex;
+    justify-content: space-between;
+}
+
+.secondPart img {
+    width: 450px;
+    height: 400px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgb(8, 9, 17);
+    margin-right: 120px;
+    transition: 0.5s;
+    margin-bottom: 100px;
+}
+
+.secondPart img:hover {
+    transform: scale(1.01);
+    transition: 0.5s;
+}
+
+.secondPart p {
+    text-align: justify;
+}
+
+.thirdPartSection {
+    background-color: #0e0e15;
+}
+
+.thirdPart {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0e0e15;
+}
+
+.thirdPart .divider {
+    width: 100%;
+    height: 2px;
+    position: relative;
+
+    background-color: #1286c9;
+    margin-bottom: 120px;
+}
+
+.thirdPart .divider h1 {
+    position: absolute;
+
+    width: 500px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #0e0e15;
+
+    text-align: center;
+
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+}
+
+.thirdPart .boxes {
+    margin-bottom: 120px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #0e0e15;
+}
+
+.thirdPart .boxes h2 {
+    color: #02a1fd;
+    margin-bottom: 20px;
+}
+
+.thirdPart .boxes img {
+    width: 300px;
+    margin-bottom: 20px;
+    animation: moeda 8s linear infinite;
+}
+
+.thirdPart .boxes .box1 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 30%;
+}
+
+.thirdPart .boxes .box2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 30%;
+}
+
+.thirdPart .boxes .box3 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 30%;
+}
+
+.thirdPart .boxes p {
+    margin-top: 20px;
+    text-align: justify;
+}
+
+@keyframes moeda {
+    0%{
+        transform: rotate3d(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: rotate3d(0, 1, 0, 360deg);
+    }
 }

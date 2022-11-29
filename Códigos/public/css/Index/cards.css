@@ -33,7 +33,7 @@
     width: 100%;
     word-wrap: break-word;
     opacity: 0;
-    transition: 0.3s;
+    transition: 0.8s;
     text-align: center;
     display: flex;
     align-items: flex-end;
@@ -43,13 +43,8 @@
     justify-content: center;
 }
 
-/* .cards .card:hover {
-    transform: scale(1.05);
-    transition: 0.4s;
-} */
-
 .cards .card h3:hover {
-    transition: 0.2s;
+    transition: 0.8s;
     opacity: 1;
 }
 

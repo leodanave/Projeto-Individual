@@ -42,14 +42,15 @@
     text-align: justify;
 }
 
+.rating a {
+    color: rgb(0, 174, 255);
+    text-decoration: underline;
+}
+
 .rating .text {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.rating .text p {
-
 }
 
 .rating .gap-120 {
@@ -58,3 +59,68 @@
     flex-direction: row-reverse;
 }
 
+.rating .iframe_rating img {
+    position: relative;
+}
+
+.rating .iframe_rating h3 {
+    opacity: 0;
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.8s;
+}
+
+.rating .iframe_rating .fer {
+    width: 100px;
+    height: 100%;
+    top: 0;
+    left: 35px;
+    text-shadow: 2px 0px 5px black;
+}
+
+.rating .iframe_rating .coldzera {
+    width: 110px;
+    height: 100%;
+
+    padding-top: 80px;
+    top: 0px;
+    left: 120px;
+    text-shadow: 2px 0px 5px black;
+}
+
+.rating .iframe_rating .fallen {
+    width: 120px;
+    height: 100%;
+
+    padding-bottom: 50px;
+    top: 0;
+    left: 190px;
+    text-shadow: 2px 0px 5px black;
+}
+
+.rating .iframe_rating .taco {
+    width: 100px;
+    height: 100%;
+
+    top: 0px;
+    left: 290px;
+    text-shadow: 2px 0px 5px black;
+}
+
+.rating .iframe_rating .fnx {
+    width: 100px;
+    height: 100%;
+
+    padding-bottom: 50px;
+    top: 0;
+    left: 350px;
+    text-shadow: 2px 0px 5px black;
+}
+
+.rating .iframe_rating h3:hover {
+    opacity: 1;
+    transition: 0.3s;
+}

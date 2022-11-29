@@ -31,4 +31,8 @@ router.delete("/deletar/:idComentario", function (req, res) {
     avisoController.deletar(req, res);
 });
 
+router.get("/validarComentario/:idUsuario", function (req, res) {
+    avisoController.validarComentario(req, res);
+});
+
 module.exports = router;

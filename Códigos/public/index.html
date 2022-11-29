@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/Index/rating.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/Index/mapRotation.css">
 
     <script src="./js/funcoes.js"></script>
 
@@ -95,7 +96,7 @@
 
     <section class="howWork">
         <div class="container">
-            <div class="divider">
+            <div class="divider" data-move="top">
                 <h2 class="text">
                     História do Jogo
                 </h2>
@@ -103,14 +104,14 @@
 
             <div class="flex gap-120">
                 <div class="f-grow">
-                    <div class="image">
+                    <div class="image" data-move="left">
                         <img src="assets/images/CSGO.jpg">
                     </div>
                 </div>
 
 
                 <div class="f-grow">
-                    <div class="paragraphs">
+                    <div class="paragraphs" data-move="right">
                         <p>
                             Hoje em dia é difícil encontrar alguém que goste de videogames e que nunca tenha jogado ou
                             ao menos visto Counter-Strike, seja em casa ou em uma lan house. Este jogo viciante com
@@ -130,21 +131,79 @@
         </div>
     </section>
 
+    <section class="mapRotation">
+        <div class="container">
+            <div class="divider" data-move="top">
+                <h2>Rotação de Mapas</h2>
+            </div>
+
+            <div class="slideshow-container" data-move="bottom">
+
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 7</div>
+                <img src="assets/images/Mirage.jpg" style="width:100%">
+                <div class="text">Mirage</div>
+              </div>
+              
+              <div class="mySlides fade">
+                <div class="numbertext">2 / 7</div>
+                <img src="assets/images/Inferno.jpg" style="width:100%">
+                <div class="text">Inferno</div>
+              </div>
+              
+              <div class="mySlides fade">
+                <div class="numbertext">3 / 7</div>
+                <img src="assets/images/Ancient.webp" style="width:100%">
+                <div class="text">Ancient</div>
+              </div>
+
+              <div class="mySlides fade">
+                <div class="numbertext">4 / 7</div>
+                <img src="assets/images/Anubis.webp" style="width:100%">
+                <div class="text">Anubis</div>
+              </div>
+
+              <div class="mySlides fade">
+                <div class="numbertext">5 / 7</div>
+                <img src="assets/images/Overpass.webp" style="width:100%">
+                <div class="text">Overpass</div>
+              </div>
+
+              <div class="mySlides fade">
+                <div class="numbertext">6 / 7</div>
+                <img src="assets/images/Nuke.webp" style="width:100%">
+                <div class="text">Nuke</div>
+              </div>
+
+              <div class="mySlides fade">
+                <div class="numbertext">7 / 7</div>
+                <img src="assets/images/Vertigo.webp" style="width:100%">
+                <div class="text">Vertigo</div>
+              </div>
+
+            </div>
+        </div>
+    </section>
+
     <section class="rating">
         <div class="container">
-            <div class="divider">
-                <h2 class="text-h2">O Melhor Time da História</h2>
+            <div class="divider" data-move="bottom">
+                <h2 class="text-h2">O Melhor Time</h2>
             </div>
             <div class="flex gap-120">
-                <div class="iframe_rating">
-                    <iframe width="500" height="300" src="https://www.youtube.com/embed/dYlZ25BLzFw"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                <div class="iframe_rating" data-move="right">
+                    <img src="assets/images/LuminosityGaming.jpg" alt="" width="500" height="300">
+                    <h3 class="fer">fer</h3>
+                    <h3 class="coldzera">Coldzera</h3>
+                    <h3 class="fallen">Fallen</h3>
+                    <h3 class="taco">TACO</h3>
+                    <h3 class="fnx">FNX</h3>
+                    <!-- <iframe width="500" height="300" src="https://www.youtube.com/embed/Amf3Jt08J8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                 </div>
-                    <div class="text">
-                        <p>Luminosity Gaming era composta por Fallen, fer, TACO, FNX e Coldzera. Considerado o time mais temido do Counter-Stike por muito tempo, a Luminosity, que posteriormente virou SK Gaming, conquistou inúmeros títulos durante toda sua jornada pelo Counter-Strike, dentre eles, dois Majors em seguida em 2016. A maneira em que eles jogavam revolucionou o cenário do jogo, estipulando novos parâmetros para todos os times ao redor do mundo. E o melhor de tudo isso? Eram brasileiros! 
+                    <div class="text" data-move="left">
+                        <p>Luminosity Gaming era composta por Fallen, fer, TACO, FNX e Coldzera. Considerado o time mais temido do Counter-Stike por muito tempo, a Luminosity, que posteriormente virou SK Gaming, conquistou inúmeros títulos durante toda sua jornada pelo Counter-Strike, dentre eles, dois Majors seguidos em 2016. A maneira em que eles jogavam revolucionou o cenário do jogo, estipulando novos parâmetros para todos os times ao redor do mundo, e o melhor de tudo isso? Eram brasileiros! 💚💛💙
                         </p>
+                        <p>Entenda melhor o que esse jogo proporciona para as pessoas. <a href="SobreMim.html">CLIQUE AQUI!</a></p>
                     </div>
             </div>
         </div>
@@ -176,10 +235,10 @@
             <div class="social_media">
                 <h2>Redes Sociais</h2>
                 <ul>
-                    <a href=""><img src="assets/images/instagramlogo.png" alt=""></a>
-                    <a href=""><img src="assets/images/twitterlogo.png" alt=""></a>
-                    <a href=""><img src="assets/images/whatsapplogo.png" alt=""></a>
-                    <a href=""><img src="assets/images/facebooklogo.png" alt=""></a>
+                    <a href="https://www.instagram.com/danave_design/" target="_blank"><img src="assets/images/instagramlogo.png" alt=""></a>
+                    <a href="" target="_blank"><img src="assets/images/twitterlogo.png" alt=""></a>
+                    <a href="" target="_blank"><img src="assets/images/whatsapplogo.png" alt=""></a>
+                    <a href="https://www.facebook.com/leonardo.danave/" target="_blank"><img src="assets/images/facebooklogo.png" alt=""></a>
                 </ul>
             </div>
         </div>

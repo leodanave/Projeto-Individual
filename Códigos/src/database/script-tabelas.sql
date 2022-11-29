@@ -9,17 +9,6 @@ comandos para mysql - banco local - ambiente de desenvolvimento
 CREATE DATABASE danave;
 USE danave;
 
-CREATE TABLE usuario (
-idUsuario INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(45),
-email VARCHAR(45),
-senha VARCHAR(45),
-fkImagem INT,
-FOREIGN KEY (fkImagem) REFERENCES imagem (idImagem)
-);
-
-select * from usuario;
-
 CREATE TABLE imagem (
 idImagem INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
@@ -27,26 +16,46 @@ endereco VARCHAR(300)
 );
 
 INSERT INTO imagem VALUES 
-	(null, 'Ava', 'D:\Documentos\Site individual\Projeto-Individual\Códigos\public\assets\images\Personagens\ava.png'),
-	(null, 'Black Wolf', 'D:\Documentos\Site individual\Projeto-Individual\Códigos\public\assets\images\Personagens\blackwolf.png'),
-	(null, 'Rezan', 'D:\Documentos\Site individual\Projeto-Individual\Códigos\public\assets\images\Personagens\rezan.png'),
-	(null, 'Romanov', 'D:\Documentos\Site individual\Projeto-Individual\Códigos\public\assets\images\Personagens\romanov.png'),
-	(null, 'Slingshot', 'D:\Documentos\Site individual\Projeto-Individual\Códigos\public\assets\images\Personagens\slingshot.png');
+	(null, 'Ava', 'assets\\images\\Personagens\\ava.png'),
+	(null, 'Black Wolf', 'assets\\images\\Personagens\\blackwolf.png'),
+	(null, 'Rezan', 'assets\\images\\Personagens\\rezan.png'),
+	(null, 'Romanov', 'assets\\images\\Personagens\\romanov.png'),
+	(null, 'Slingshot', 'assets\\images\\Personagens\\slingshot.png');
+    
+SELECT * FROM imagem;
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
+CREATE TABLE usuario (
+idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(45),
+email VARCHAR(45),
+senha VARCHAR(45)
 );
 
+CREATE TABLE imagemUsuario (
+fkImagem INT,
+FOREIGN KEY (fkImagem) REFERENCES imagem (idImagem),
+fkUsuario INT, 
+FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario),
+PRIMARY KEY (fkImagem, fkUsuario)
+);
+
+CREATE TABLE analytic (
+idAnalytic INT AUTO_INCREMENT,
+resultado CHAR(5),
+CONSTRAINT chkResultado CHECK (resultado IN ('true', 'false')),
+fkUsuario INT,
+FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario),
+PRIMARY KEY (idAnalytic, fkUsuario)
+);
+
+CREATE TABLE comentario (
+idComentario INT AUTO_INCREMENT,
+titulo VARCHAR(100),
+descricao VARCHAR(250),
+fkUsuario INT, 
+FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario),
+PRIMARY KEY (idComentario, fkUsuario)
+);
 
 /*
 comando para sql server - banco remoto - ambiente de produção

@@ -137,6 +137,10 @@
                     cardErro.style.display = "block";
 
                     setTimeout(() => {
+                        inserirImagem()  
+                    }, 1000);
+
+                    setTimeout(() => {
                         window.location = "Login.html";
                     }, "2000")
 
@@ -158,4 +162,36 @@
         }
     }
 
+    function inserirImagem() {
+            // var idUsuario = sessionStorage.getItem('ID_USUARIO')
+
+            // Enviando o valor da nova input
+            // DANDO PROBLEMA 
+            fetch("/usuarios/inserirImagem", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    // idUsuario: idUsuario,
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    atualizar()
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
+        }
 </script>
