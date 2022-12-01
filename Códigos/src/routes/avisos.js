@@ -35,4 +35,9 @@ router.get("/validarComentario/:idUsuario", function (req, res) {
     avisoController.validarComentario(req, res);
 });
 
+router.get("/validarEdicao/:idUsuario", function (req, res) {
+    avisoController.validarEdicao(req, res);
+});
+
+
 module.exports = router;

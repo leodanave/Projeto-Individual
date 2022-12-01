@@ -40,6 +40,7 @@
     font-size: 1rem;
     font-weight: 400;
     text-align: justify;
+    text-indent: 32px;
 }
 
 .rating a {
@@ -114,7 +115,7 @@
     width: 100px;
     height: 100%;
 
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     top: 0;
     left: 350px;
     text-shadow: 2px 0px 5px black;

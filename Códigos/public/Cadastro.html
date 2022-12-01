@@ -53,7 +53,7 @@
             <div class="input_cadastro">
                 <label for="in_senha">Insira sua senha</label>
                 <div class="eye_input" id="div_eye_input">
-                    <input placeholder="***********" type="password" id="input_senha">
+                    <input placeholder="***********" type="password" onkeyup="avisoSenha()" id="input_senha">
                     <button onclick="mudarTipo()"><img id="img_eye" src="assets/images/eye_white.png" alt=""></button>
                 </div>
             </div>
@@ -64,9 +64,9 @@
                     <button onclick="mudarTipo()"><img id="img_eye1" src="assets/images/eye_white.png" alt=""></button>
                 </div>
             </div>
-
+            
             <button class="button_cadastro" onclick="cadastrar()">Cadastrar</button>
-
+            
             <div id="div_erros_login">
 
             </div>
@@ -86,6 +86,16 @@
 
 <script>
     var cor = "<span style='color: yellow;'>"
+    
+        function avisoSenha() {
+
+            if (input_senha.value.length == 0) {
+                div_erros_login.innerHTML = ''
+            } else {
+                div_erros_login.innerHTML = "❗ Sua senha deve ter caracteres especiais e alfanuméricos! ❗"
+            }
+    }
+
 
     function cadastrar() {
 

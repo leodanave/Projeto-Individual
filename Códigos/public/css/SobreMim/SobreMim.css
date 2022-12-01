@@ -31,7 +31,7 @@
     width: 300px;
     /* box-shadow: 0px 0px 20px #1286c9; */
     margin-left: 120px;
-    margin-bottom: 140px;
+    margin-bottom: 150px;
     transition: 0.5s;
     border-radius: 20px;
 }
@@ -148,7 +148,7 @@
 }
 
 .thirdPart .boxes img {
-    width: 300px;
+    width: 200px;
     margin-bottom: 20px;
     animation: moeda 8s linear infinite;
 }
